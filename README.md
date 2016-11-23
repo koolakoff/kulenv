@@ -12,3 +12,7 @@ Run install script:
     ./install.sh
 
 The install script saves previous configuration. **NOTE** if run script 2 time at once, it will rewrite saved backup
+
+**NOTE** To apply bash settings restart terminal or run
+
+    . ~/.bash.${USER}
