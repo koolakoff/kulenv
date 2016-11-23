@@ -7,20 +7,8 @@ kulenv includes config of bash console environment and vim editor oriented for G
 <br><br>
 
 # Install #
-**VIM config**
+Run install script:
 
-Copy `vimrc` to home directory with `.vimrc` name:
+    ./install.sh
 
-    $ cp vimrc ~/.vimrc
-
-**Bash config**
-
-Copy `bashrc` to home directory with `.bash.$USER` name:
-
-    $ cp bashrc ~/.bash.$USER
-
-and insert the following lines to your `~/.bashrc` config file:
-
-    [[ -f ~/.bash.${USER} ]]   && . ~/.bash.${USER}
-
-Note, to enable colored console invitation you should uncomment `#force_color_prompt=yes` line in your `~/.bashrc`
+The install script saves previous configuration. **NOTE** if run script 2 time at once, it will rewrite saved backup
