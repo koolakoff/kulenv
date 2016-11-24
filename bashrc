@@ -1,6 +1,10 @@
 #!/bin/bash
 # Local bash environment configuration
 
+#######################
+# Alias and Functions #
+#######################
+
 # search for word in all files and folders in current dir
 alias fw='grep -R ./ --exclude-dir='.git' -H --color -n -e'
 
@@ -11,7 +15,18 @@ alias fws='grep -R ./ --exclude-dir='.git' --include="*.[ch]" -H --color -n -e'
 alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 
 
-
 # GIT commands
-
 alias glog='git log --graph --oneline --decorate --all --color'
+
+parse_git_branch() 
+{
+    test "xtrue" == "x$(git rev-parse --is-inside-work-tree 2>/dev/null)" && git branch | grep -e "^\*"| sed "s/^..\(.*\)/\1 /"
+}
+
+#########################
+# Command Line settings #
+#########################
+
+# color prompt
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$(parse_git_branch)\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
+

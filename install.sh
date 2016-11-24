@@ -33,8 +33,6 @@ then
 	# add automatic apply of user settings
         echo 'test -f ~/.bash.${USER} && . ~/.bash.${USER}' >> ~/.bashrc
     fi
-    # enable color console. FOR UBUNTU ONLY
-    sed -i 's/^#\(force_color_prompt=yes\)/\1/' ~/.bashrc
 fi
 # backup original user settings
 if [ -f ~/.bash.${USER} ]
@@ -46,3 +44,5 @@ fi
 cp bashrc ~/.bash.${USER}
 
 echo "Done"
+echo
+echo "to apply changes restart terminal or run '. ~/.bashrc'"

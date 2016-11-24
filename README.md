@@ -16,3 +16,24 @@ The install script saves previous configuration. **NOTE** if run script 2 time a
 **NOTE** To apply bash settings restart terminal or run
 
     . ~/.bash.${USER}
+
+<br><br>
+
+# Content #
+
+**Bash commands**
+
+* fw   - Find Word - wrapper for recursive grep. Usage: 'fw regexp'
+* fws  - same as fw but search only in C source
+* glog - beautified git log
+
+**VIM**
+
+* Apply indenting for C language
+* Print line numbers
+* Highlight search
+* Bautify status line
+
+**Other changes**
+
+* print branch name in console invitation when inside git project tree
