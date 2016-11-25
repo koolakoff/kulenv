@@ -4,6 +4,8 @@ kulenv includes config of bash console environment and vim editor oriented for G
 
 **NOTE** this set of environment is based on default Ubuntu 14.04 configurations.
 
+More info available on project wiki: https://github.com/koolakoff/kulenv/wiki
+
 <br><br>
 
 # Install #
