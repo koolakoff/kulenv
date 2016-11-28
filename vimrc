@@ -28,8 +28,7 @@ set statusline+=%l\,%c\ (%p%%)
 if has("autocmd")
  filetype on
  filetype indent on
- autocmd FileType c   setlocal ts=4 sts=4 sw=4 et cindent
- autocmd FileType cpp setlocal ts=4 sts=4 sw=4 et cindent
+ autocmd FileType c,cpp,h setlocal ts=4 sts=4 sw=4 et cindent
 endif
 
 " function for counting lines/chars/blocks selected
