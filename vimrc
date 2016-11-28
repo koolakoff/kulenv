@@ -28,7 +28,16 @@ set statusline+=%l\,%c\ (%p%%)
 if has("autocmd")
  filetype on
  filetype indent on
- autocmd FileType c,cpp,h setlocal ts=4 sts=4 sw=4 et cindent
+ au FileType c,cpp,h setlocal ts=4 sts=4 sw=4 et cindent
+ au FileType c,cpp,h inoremap #d #define
+ au FileType c,cpp,h inoremap #e #endif<Esc>%y<End>''A /* <Esc>pA */<Esc>
+ au FileType c,cpp,h inoremap #" #include ""<Esc>i
+ au FileType c,cpp,h inoremap #< #include <><Esc>i
+ au FileType c,cpp,h inoremap " ""<Left>
+ au FileType c,cpp,h inoremap ' ''<Left>
+ au FileType c,cpp,h inoremap ( ()<Left>
+ au FileType c,cpp,h inoremap [ []<Left>
+ au FileType c,cpp,h inoremap { {<Return>}<Up><Return>
 endif
 
 " function for counting lines/chars/blocks selected
