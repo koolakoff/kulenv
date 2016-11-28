@@ -43,11 +43,11 @@ endif
 " mapping for vimdiff (for vimdiff used as a mergetool
 if &diff
  " get diff from Remote
- nmap gr :diffg RE<Return>
+ nnoremap gr :diffg RE<Return>
  " get diff from Base
- nmap gb :diffg BA<Return>
+ nnoremap gb :diffg BA<Return>
  " get diff from Local
- nmap gl :diffg LO<Return>
+ nnoremap gl :diffg LO<Return>
 endif
 
 " function for counting lines/chars/blocks selected
