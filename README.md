@@ -35,6 +35,8 @@ The install script saves previous configuration. **NOTE** if run script 2 time a
 * Print line numbers
 * Highlight search
 * Bautify status line
+* auto complete braces, quotes, ifdefs and includes
+* Add nmaps for git merge by vimdiff ('gl' for get local, 'gr' for get remote, 'gb' for get base)
 
 **Other changes**
 
