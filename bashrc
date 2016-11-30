@@ -15,7 +15,7 @@ alias fws='grep -R ./ --exclude-dir='.git' --include="*.[ch]" -H --color -n -e'
 alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 
 # GIT commands
-alias glog='git log --graph --oneline --decorate --all --color'
+alias glog='git log --graph --oneline --decorate --color'
 
 parse_git_branch() 
 {
