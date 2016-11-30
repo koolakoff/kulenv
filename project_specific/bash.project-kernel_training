@@ -38,6 +38,13 @@ function pull_kernel()
     cd linux-stable
     git checkout v4.8.6 -b work
 
+    echo
+    echo "Linux kernel sources is stored at"
+    echo "   $SRC_KERNEL"
+    echo "Buld directory for Linux kernel is"
+    echo "   $BUILD_KERNEL"
+    echo
+
     popd > /dev/null
 }
 
@@ -58,7 +65,28 @@ function pull_rootfs()
     cd $PROJECT_DIR
     git clone git://git.buildroot.net/buildroot
 
+    echo
+    echo "rootfs sources is stored at"
+    echo "   $SRC_ROOT"
+    echo "Buld directory for rootfs is"
+    echo "   $BUILD_ROOT"
+    echo
+
     popd > /dev/null
+}
+
+function emulate()
+{
+    qemu-system-i386 \
+        -kernel ${BUILD_KERNEL}/arch/x86/boot/bzImage \
+        -append "root=/dev/sda" \
+        -hda ${BUILD_ROOT}/images/rootfs.ext3 \
+        -redir tcp:8022::22 &
+}
+
+function connect()
+{
+    ssh -p 8022 user@localhost
 }
 
 test ! -d $SRC_KERNEL && echo "Linux kernel source not found in $SRC_KERNEL Use 'pull_kernel' to download it."
