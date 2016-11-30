@@ -14,7 +14,6 @@ alias fws='grep -R ./ --exclude-dir='.git' --include="*.[ch]" -H --color -n -e'
 # generate C tags
 alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 
-
 # GIT commands
 alias glog='git log --graph --oneline --decorate --all --color'
 
@@ -30,3 +29,7 @@ parse_git_branch()
 # color prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$(parse_git_branch)\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
 
+####################
+# Project specific #
+####################
+test -f ~/.bash.project && . ~/.bash.project
