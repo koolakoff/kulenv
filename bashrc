@@ -1,6 +1,12 @@
 #!/bin/bash
 # Local bash environment configuration
 
+###############################
+# Local Environment variables #
+###############################
+
+test -f ~/.bash.env && . ~/.bash.env
+
 #######################
 # Alias and Functions #
 #######################
@@ -32,4 +38,4 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$(parse_git_branch)\[\033[
 ####################
 # Project specific #
 ####################
-test -f ~/.bash.project && . ~/.bash.project
+test -f ~/.bash.$MY_PROJECT && . ~/.bash.$MY_PROJECT
