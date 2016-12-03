@@ -22,12 +22,16 @@ parse_git_branch()
     test "xtrue" == "x$(git rev-parse --is-inside-work-tree 2>/dev/null)" && git branch | grep -e "^\*"| sed "s/^..\(.*\)/\1 /"
 }
 
-#########################
-# Command Line settings #
-#########################
+################
+#   Settings   #
+################
 
 # color prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$(parse_git_branch)\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# config history size
+HISTSIZE=5000
+HISTFILESIZE=20000
 
 ####################
 # Project specific #
