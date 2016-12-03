@@ -1,6 +1,12 @@
 #!/bin/bash
 # Local bash environment configuration
 
+###############################
+# Local Environment variables #
+###############################
+
+test -f ~/.bash.env && . ~/.bash.env
+
 #######################
 # Alias and Functions #
 #######################
@@ -36,4 +42,4 @@ HISTFILESIZE=20000
 ####################
 # Project specific #
 ####################
-test -f ~/.bash.project && . ~/.bash.project
+test -f ~/.bash.$MY_PROJECT && . ~/.bash.$MY_PROJECT

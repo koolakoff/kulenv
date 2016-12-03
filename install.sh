@@ -104,7 +104,7 @@ function install_all()
     if [ ! -z $project ]
     then
         echo "Installing BASH project-specific config for ${project}..."
-        bash_project_specific_config
+        test -f project_specific/${project}.install.sh && . project_specific/${project}.install.sh
     fi
 
     echo "Done"

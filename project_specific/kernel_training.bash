@@ -1,14 +1,5 @@
 #!/bin/bash
 
-export PROJECT_DIR=~/kernel_training/
-export BUILD_DIR=$PROJECT_DIR/build
-
-export SRC_KERNEL=$PROJECT_DIR/linux-stable
-export SRC_ROOT=$PROJECT_DIR/buildroot
-
-export BUILD_KERNEL=$BUILD_DIR/kernel
-export BUILD_ROOT=$BUILD_DIR/rootfs
-
 # alias for change dir to
 alias cdp='cd $PROJECT_DIR'
 alias cdb='cd $BUILD_DIR'
@@ -89,5 +80,10 @@ function connect()
     ssh -p 8022 user@localhost
 }
 
-test ! -d $SRC_KERNEL && echo "Linux kernel source not found in $SRC_KERNEL Use 'pull_kernel' to download it."
-test ! -d $SRC_ROOT &&   echo "Linux rootfs source not found in $SRC_ROOT Use 'pull_rootfs' to download it."
+function check_project_env()
+{
+    test ! -d $SRC_KERNEL && echo "Linux kernel source not found in $SRC_KERNEL Use 'pull_kernel' to download it."
+    test ! -d $SRC_ROOT &&   echo "Linux rootfs source not found in $SRC_ROOT Use 'pull_rootfs' to download it."
+}
+
+check_project_env

@@ -11,13 +11,17 @@ More info available on project wiki: https://github.com/koolakoff/kulenv/wiki
 # Install #
 Run install script:
 
-    ./install.sh
+    ./install.sh [-p <PROJECT_NAME>]
+
+where
+
+- `-p` installs extra environment for specified `PROJECT_NAME`. Currently supported: `kernel_training`
 
 The install script saves previous configuration. **NOTE** if run script 2 time at once, it will rewrite saved backup
 
 **NOTE** To apply bash settings restart terminal or run
 
-    . ~/.bash.${USER}
+    . ~/.bashrc
 
 <br><br>
 
@@ -28,6 +32,7 @@ The install script saves previous configuration. **NOTE** if run script 2 time a
 * fw   - Find Word - wrapper for recursive grep. Usage: 'fw regexp'
 * fws  - same as fw but search only in C source
 * glog - beautified git log
+* tg   - build C-tags in current dir
 
 **VIM**
 
