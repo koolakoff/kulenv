@@ -10,6 +10,8 @@ alias cdr='cd $SRC_ROOT'
 alias cdbk='cd $BUILD_KERNEL'
 alias cdbr='cd $BUILD_ROOT'
 
+alias cdl='cd $LOCAL_DIR'
+
 # download kernel sources from Git
 function pull_kernel()
 {
@@ -64,6 +66,19 @@ function pull_rootfs()
     echo
 
     popd > /dev/null
+}
+
+function restore_rootfs()
+{
+    echo restore ${BUILD_ROOT}/images/rootfs.ext3
+    cp -f ${BUILD_ROOT}/images/rootfs.ext3.backup ${BUILD_ROOT}/images/rootfs.ext3
+}
+
+function backup_rootfs()
+{
+    echo save ${BUILD_ROOT}/images/rootfs.ext3
+    echo "  to  ${BUILD_ROOT}/images/rootfs.ext3.backup"
+    cp -f ${BUILD_ROOT}/images/rootfs.ext3 ${BUILD_ROOT}/images/rootfs.ext3.backup
 }
 
 function emulate()
