@@ -11,6 +11,10 @@ test -f ~/.bash.env && . ~/.bash.env
 # General Alias and Functions #
 ###############################
 
+test -z $EDITOR && EDITOR=vim
+
+test -z $MYDIR && MYDIR=~
+
 # search for word in all files and folders in current dir
 alias fw='grep -R ./ --exclude-dir='.git' -H --color -n -e'
 
@@ -22,6 +26,10 @@ alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 
 # reset bashrc
 alias resetbash='. ~/.bashrc'
+
+# My dir and my temp files
+alias cdm="cd $MYDIR"
+alias edinfo="$EDITOR $MYDIR/info"
 
 # Save/clear variable to local ~/.bash.env file
 #   setenv VAR [VAL]
