@@ -20,6 +20,9 @@ alias fws='grep -R ./ --exclude-dir='.git' --include="*.[ch]" -H --color -n -e'
 # generate C tags
 alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 
+# reset bashrc
+alias resetbash='. ~/.bashrc'
+
 # GIT commands
 alias glog='git log --graph --oneline --decorate --color'
 

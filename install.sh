@@ -109,7 +109,7 @@ function install_all()
 
     echo "Done"
     echo
-    echo "to apply changes restart terminal or run '. ~/.bashrc'"
+    echo "to apply changes restart terminal or run '. ~/.bashrc' or run 'resetbash' command"
 }
 
 install_all $@
