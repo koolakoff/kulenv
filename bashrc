@@ -36,7 +36,7 @@ function setenv()
 
     if [ $# == 1 ]
     then
-        echo "Remove $1 param from ~/.bash.enc"
+        echo "Remove $1 param from ~/.bash.env"
         # just exit if there is no env file
         test -f ~/.bash.env || return 0
         # delete line
@@ -44,7 +44,7 @@ function setenv()
         sed -i -e "$sedcmd" ~/.bash.env
     elif [ $# == 2 ]
     then
-        echo -e "Set $1 param from ~/.bash.enc to '$2' value"
+        echo -e "Set $1 param from ~/.bash.env to '$2' value"
         # create env file if there was no one
         test -f ~/.bash.env || echo '#!/bin/bash' >  ~/.bash.env
         # check if var not exists
@@ -54,7 +54,7 @@ function setenv()
             echo "export $1=$2" >> ~/.bash.env
         else
             # update var if it was already devined
-            sedcmd="s/^export\ $1.*/export\ $1=$2/"
+            sedcmd="s/^export\ $1.*/export\ $1=${2//\//\\\/}/"
             sed -i -e "$sedcmd" ~/.bash.env
         fi
     else
