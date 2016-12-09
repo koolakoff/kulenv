@@ -29,10 +29,12 @@ The install script saves previous configuration. **NOTE** if run script 2 time a
 
 **Bash commands**
 
-* fw   - Find Word - wrapper for recursive grep. Usage: 'fw regexp'
-* fws  - same as fw but search only in C source
-* glog - beautified git log
-* tg   - build C-tags in current dir
+* `fw`   - Find Word - wrapper for recursive grep. Usage: 'fw regexp'
+* `fws`  - same as fw but search only in C source
+* `glog` - beautified git log
+* `restartbash` - reload environment
+* `setenv` - saves/clear env variable to local config file
+* `tg`   - build C-tags in current dir
 
 **VIM**
 

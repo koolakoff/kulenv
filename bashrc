@@ -7,9 +7,9 @@
 
 test -f ~/.bash.env && . ~/.bash.env
 
-#######################
-# Alias and Functions #
-#######################
+###############################
+# General Alias and Functions #
+###############################
 
 # search for word in all files and folders in current dir
 alias fw='grep -R ./ --exclude-dir='.git' -H --color -n -e'
@@ -23,7 +23,50 @@ alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 # reset bashrc
 alias resetbash='. ~/.bashrc'
 
-# GIT commands
+# Save/clear variable to local ~/.bash.env file
+#   setenv VAR [VAL]
+# where
+#   - VAR - name of variable
+#   - VAL - value (if empty, delete the variable)
+function setenv()
+{
+    local sedcmd=''
+
+    test $# == 0 && echo "wrong params"
+
+    if [ $# == 1 ]
+    then
+        echo "Remove $1 param from ~/.bash.enc"
+        # just exit if there is no env file
+        test -f ~/.bash.env || return 0
+        # delete line
+        sedcmd="/^export\ $1/d"
+        sed -i -e "$sedcmd" ~/.bash.env
+    elif [ $# == 2 ]
+    then
+        echo -e "Set $1 param from ~/.bash.enc to '$2' value"
+        # create env file if there was no one
+        test -f ~/.bash.env || echo '#!/bin/bash' >  ~/.bash.env
+        # check if var not exists
+        if [ -z "$(grep -e $1 ~/.bash.env)" ]
+        then
+            # add var if it was not present in env file
+            echo "export $1=$2" >> ~/.bash.env
+        else
+            # update var if it was already devined
+            sedcmd="s/^export\ $1.*/export\ $1=$2/"
+            sed -i -e "$sedcmd" ~/.bash.env
+        fi
+    else
+        echo "wrong params"
+    fi
+    return
+}
+
+###########################
+# Git Alias and Functions #
+###########################
+
 alias glog='git log --graph --oneline --decorate --color'
 
 parse_git_branch() 
