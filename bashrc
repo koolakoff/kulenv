@@ -28,8 +28,11 @@ alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
 alias resetbash='. ~/.bashrc'
 
 # My dir and my temp files
-alias cdm="cd $MYDIR"
-alias edinfo="$EDITOR $MYDIR/info"
+alias cdm='cd $MYDIR'
+alias setm='echo old MYDIR was $MYDIR ; setenv MYDIR $(pwd); . ~/.bash.env'
+alias edinfo='$EDITOR $MYDIR/info'
+
+alias readenv='. ~/.bash.env'
 
 # Save/clear variable to local ~/.bash.env file
 #   setenv VAR [VAL]
