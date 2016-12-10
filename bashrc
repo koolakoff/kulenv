@@ -21,9 +21,6 @@ alias fw='grep -R ./ --exclude-dir='.git' -H --color -n -e'
 # search for word in all C source and headers files and folders in current dir
 alias fws='grep -R ./ --exclude-dir='.git' --include="*.[ch]" -H --color -n -e'
 
-# generate C tags
-alias tg='ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q'
-
 # reset bashrc
 alias resetbash='. ~/.bashrc'
 
@@ -73,6 +70,22 @@ function setenv()
     source ~/.bash.env
 
     return
+}
+
+# generate C tags
+#  reuses tags file from project dir, if not exists, generates it
+function tg()
+{
+    # generate tags for project tree if 'taglist' file with dir list exists
+    # otherwares generate tags only for current dir
+    if [ -f $PROJECT_DIR/taglist ]
+    then
+        test -f $PROJECT_DIR/tags || ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q -L $PROJECT_DIR/taglist -o $PROJECT_DIR/tags
+        test -f tags || cp $PROJECT_DIR/tags ./
+        ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q -L $PROJECT_DIR/taglist .
+    else
+        ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .
+    fi
 }
 
 ###########################
