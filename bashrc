@@ -29,10 +29,8 @@ alias resetbash='. ~/.bashrc'
 
 # My dir and my temp files
 alias cdm='cd $MYDIR'
-alias setm='echo old MYDIR was $MYDIR ; setenv MYDIR $(pwd); . ~/.bash.env'
+alias setm='echo old MYDIR was $MYDIR ; setenv MYDIR $(pwd)'
 alias edinfo='$EDITOR $MYDIR/info'
-
-alias readenv='. ~/.bash.env'
 
 # Save/clear variable to local ~/.bash.env file
 #   setenv VAR [VAL]
@@ -71,6 +69,9 @@ function setenv()
     else
         echo "wrong params"
     fi
+
+    source ~/.bash.env
+
     return
 }
 
