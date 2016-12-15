@@ -12,6 +12,10 @@ alias cdbr='cd $BUILD_ROOT'
 
 alias cdl='cd $LOCAL_DIR'
 
+alias cdbb='cd $BB_DIR'
+alias cdbbk='cd $BB_SRC_KERNEL'
+alias cdbbr='cd $BB_ROOT'
+
 # download kernel sources from Git
 function pull_kernel()
 {
