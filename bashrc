@@ -73,7 +73,13 @@ function setenv()
 }
 
 # generate C tags
-#  reuses tags file from project dir, if not exists, generates it
+#  reuses tags file for current dir
+function tgl()
+{
+        ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q . $@
+}
+
+#  reuses tags file including project dir, if not exists, generates it (uses $PROJECT_DIR/taglist)
 function tg()
 {
     # generate tags for project tree if 'taglist' file with dir list exists
@@ -82,11 +88,12 @@ function tg()
     then
         test -f $PROJECT_DIR/tags || ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q -L $PROJECT_DIR/taglist -o $PROJECT_DIR/tags
         test -f tags || cp $PROJECT_DIR/tags ./
-        ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q -L $PROJECT_DIR/taglist .
+        ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q -L $PROJECT_DIR/taglist . $@
     else
-        ctags -a -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q .
+        tgl $@
     fi
 }
+
 
 ###########################
 # Git Alias and Functions #
