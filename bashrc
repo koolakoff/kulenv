@@ -22,7 +22,7 @@ alias fw='grep -R ./ --exclude-dir='.git' -H --color -n -e'
 alias fws='grep -R ./ --exclude-dir='.git' --include="*.[ch]" -H --color -n -e'
 
 # search for word in all C headers files and folders in current dir
-alias fws='grep -R ./ --exclude-dir='.git' --include="*.h" -H --color -n -e'
+alias fwh='grep -R ./ --exclude-dir='.git' --include="*.h" -H --color -n -e'
 
 # reset bashrc
 alias resetbash='. ~/.bashrc'
